@@ -31,6 +31,7 @@ pip3 install openai prompt_toolkit
 ```
 alias sl='<your_python_path> <your_ds.py_path>'
 ```
+还要刷新 `source ~/.zshrc`
 
 4. 设置 API 密钥：
 ```bash
