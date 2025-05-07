@@ -161,7 +161,7 @@ def main():
 
             print("DeepSeek> ", flush=True)
             for chunk in response:
-                if chunk.choices[0].delta.reasoning_content:
+                if manager.config['model'] == "deepseek-reasoner" and chunk.choices[0].delta.reasoning_content:
                     if reasoning_content == "" :
                         print("Thinking :", end='', flush=True)
                     reasoning_content += chunk.choices[0].delta.reasoning_content
