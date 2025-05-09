@@ -68,7 +68,7 @@ class ConfigManager:
         """保存消息到文件"""
         current_date = datetime.now().strftime('%Y-%m-%d')
         first_message = self.messages[0]['content'][:32] if self.messages else None
-        new_file_name = f"{current_date}_{first_message}.json"
+        new_file_name = f"{self.script_dir}/data/{current_date}_{first_message}.json"
         with open(new_file_name, 'w', encoding='utf-8') as file:
             json.dump(self.messages, file, ensure_ascii=False, indent=4)
         self.messages.clear()
@@ -145,7 +145,7 @@ def main():
 
 
     while True:
-        message = prompt("User> ")
+        message = prompt("Qing> ")
         if message.lower() in ["exit", "quit", "q"]:
             break
         manager.messages.append({"role": "user", "content": message})
